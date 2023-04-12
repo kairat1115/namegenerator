@@ -1,5 +1,5 @@
 module example.com/namesgenerator
 
-go 1.17
+go 1.20
 
-require github.com/moby/moby v20.10.17+incompatible
+require github.com/dustinkirkland/golang-petname v0.0.0-20191129215211-8e5a1ed0cff0

@@ -2,24 +2,14 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"strings"
-	"time"
-
-	"github.com/moby/moby/pkg/namesgenerator"
+	petname "github.com/dustinkirkland/golang-petname"
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
-
-	name := namesgenerator.GetRandomName(0)
-	name = strings.Replace(
-		strings.Title(
-			strings.Replace(
-				name, "_", " ", -1,
-			),
-		), " ", "", -1,
-	)
-
+	petname.NonDeterministicMode()
+	name := petname.Generate(2, "-")
+	name = strings.Title(name)
+	name = strings.Replace(name, "-", "", -1)
 	fmt.Println(name)
 }
